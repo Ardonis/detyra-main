@@ -1,45 +1,103 @@
-class Calculator{
-    constructor(valueUpTextElement, currentValueTextElement){
-        this.valueUpTextElement = valueUpTextElement
-        this.currentValueTextElement = currentValueTextElement
-        this.clear()
+const calculator = {
+    displayValue: '0',
+    firstOperand: null,
+    waitingForSecondOperand: false,
+    operator: null,
+  };
+  
+  function inputDigit(digit) {
+    const { displayValue, waitingForSecondOperand } = calculator;
+  
+    if (waitingForSecondOperand === true) {
+      calculator.displayValue = digit;
+      calculator.waitingForSecondOperand = false;
+    } else {
+      calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
     }
-}
-clear() { 
-    this.currentValue = ''
-    this.valueUp = ''
-    this.operation = undefined
-}
-delete() {
-
-}
-appendNumber(number) {
-
-}
-chooseOperator(operator) {
- 
-}
-computer() {
-
-}
-updateDisplay() {
-  this.currentValueTextElement.innerText = this.currentValue
-}
-
-
-
-const numberButtons = document.querySelectorAll('[data-number]')
-const opertionButtons= document.querySelectorAll('[data-operation]')
-const equalsButton= document.querySelector('[data-equals]')
-const deleteButton= document.querySelector('[data-delete]')
-const allClearButton= document.querySelector('[data-all-clear]')
-const valueUpTextElement = document.querySelector('[data-value-up]')
-const correntValueTextElement= document.querySelector('[data-current-value]')
-
-const calculator = new Calculator(valueUpTextElement, currentValueTextElement)
-numberButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        calculator.appendNumber(button.innerText)
-        calculator.updateDisplay()
-    })
-})
+  }
+  
+  function inputDecimal(dot) {
+    // If the `displayValue` does not contain a decimal point
+    if (!calculator.displayValue.includes(dot)) {
+      // Append the decimal point
+      calculator.displayValue += dot;
+    }
+  }
+  
+  function handleOperator(nextOperator) {
+    const { firstOperand, displayValue, operator } = calculator
+    const inputValue = parseFloat(displayValue);
+  
+    if (operator && calculator.waitingForSecondOperand)  {
+      calculator.operator = nextOperator;
+      return;
+    }
+  
+    if (firstOperand == null) {
+      calculator.firstOperand = inputValue;
+    } else if (operator) {
+      const currentValue = firstOperand || 0;
+      const result = performCalculation[operator](currentValue, inputValue);
+  
+      calculator.displayValue = String(result);
+      calculator.firstOperand = result;
+    }
+  
+    calculator.waitingForSecondOperand = true;
+    calculator.operator = nextOperator;
+  }
+  
+  const performCalculation = {
+    '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
+  
+    '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
+  
+    '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
+  
+    '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+  
+    '=': (firstOperand, secondOperand) => secondOperand
+  };
+  
+  function resetCalculator() {
+    calculator.displayValue = '0';
+    calculator.firstOperand = null;
+    calculator.waitingForSecondOperand = false;
+    calculator.operator = null;
+  }
+  
+  function updateDisplay() {
+    const display = document.querySelector('.calculator-screen');
+    display.value = calculator.displayValue;
+  }
+  
+  updateDisplay();
+  
+  const keys = document.querySelector('.calculator-keys');
+  keys.addEventListener('click', (event) => {
+    const { target } = event;
+    if (!target.matches('button')) {
+      return;
+    }
+  
+    if (target.classList.contains('operator')) {
+      handleOperator(target.value);
+          updateDisplay();
+      return;
+    }
+  
+    if (target.classList.contains('decimal')) {
+      inputDecimal(target.value);
+          updateDisplay();
+      return;
+    }
+  
+    if (target.classList.contains('all-clear')) {
+      resetCalculator();
+          updateDisplay();
+      return;
+    }
+  
+    inputDigit(target.value);
+    updateDisplay();
+  });

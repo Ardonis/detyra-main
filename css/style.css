@@ -52,3 +52,6 @@ html {
   .navbar a{
     font-size: 1.8em !important;
 }
+.btn:hover{
+  background-color: ghostwhite;
+}
