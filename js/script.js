@@ -10,7 +10,9 @@ clear() {
     this.valueUp = ''
     this.operation = undefined
 }
+delete() {
 
+}
 appendNumber(number) {
 
 }
