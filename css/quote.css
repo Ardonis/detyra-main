@@ -1,0 +1,33 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    text-align: center;
+    font-family: Arial, serif;
+    background-size: cover;
+    background-position: center;
+  }
+.quote{
+    padding: 10px;
+
+}
+.quote h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    letter-spacing: .3rem;
+}
+.quote .alert{
+    padding: 5px;
+    color:black;
+}
+.quote button{
+    float: left;
+}
+.quote .title{
+    width: 50%;
+}
+.alert{
+    width: 50%;
+}
