@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/slider.css">
     <title>Home</title>
 </head>
 <body>
@@ -25,6 +26,33 @@
             </div>
         </div>
     </nav>
+ 
+    <div class="slider">
+      <div class="slider-items">
+          <div  class="item active">
+             <img src="images/image1.jpg" />
+             <div class="caption">
+                Slide 1
+             </div>
+          </div>
+          <div  class="item active">
+             <img src="./images/image2.jpg" />
+             <div class="caption">
+                Slide 2
+             </div>
+          </div>
 
+      </div>
+      <a class="left-slide" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="right-slide" onclick="plusSlides(1)">&#10095;</a>
+   </div>
+
+   <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span>  
+  </div>
+  
+
+   <script src="js/slider.js"></script>
 </body>
 </html>
