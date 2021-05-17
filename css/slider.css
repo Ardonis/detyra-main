@@ -47,7 +47,7 @@
 }
 
 .dot {
-    cursor: pointer;
+    cursor:pointer;
     height: 15px;
     width: 15px;
     margin-bottom:10px;
@@ -59,15 +59,18 @@
   .dot-active, .dot:hover {
     background-color: red;
   }
-  .slider-items .dot-active:active{
-      background-color: red;
+  .dot.active{
+    background-color: red;
   }
   .left-slide{
       text-decoration: none;
+      cursor: pointer;
   }
   .right-slide{
       text-decoration: none;
+      cursor: pointer;
   }
+
   
  
   
