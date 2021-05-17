@@ -5,8 +5,11 @@ body {
     background-position: center;
   }
 .quote{
-    padding: 10px;
-
+    padding: 10px;    
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
 }
 .quote h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
