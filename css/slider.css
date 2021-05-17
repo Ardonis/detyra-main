@@ -1,3 +1,4 @@
+
 .slider{
     max-width: 800px;
     border:10px solid white;
@@ -7,7 +8,7 @@
 }
 .slider .slider-items .item img{
     max-width:100%;
-    display: block;
+    height: 500px;
 }
 .slider .slider-items .item{
     display:none;
@@ -41,9 +42,17 @@
 }
 .slider .left-slide{
     left:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
 }
 .slider .right-slide{
     right:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
 }
 
 .dot {
