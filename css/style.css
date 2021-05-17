@@ -25,7 +25,7 @@ html {
     height: 80px;
     border: none;
     background-color: #252525;
-    color: #fff;
+    color: rgb(253, 249, 249);
     text-align: right;
     padding-right: 20px;
     padding-left: 10px;
@@ -40,7 +40,13 @@ html {
   .equal-sign {
     height: 98%;
     grid-area: 2 / 4 / 6 / 5;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+
   }
+.equal-sign:hover{
+  background-color: rgb(219, 219, 219);
+}
 
   .calculator-keys {
     display: grid;
@@ -51,6 +57,7 @@ html {
   /* .navbar a{
     font-size: 1.8rem !important;
 } */
-.btn:hover{
+.btn-light:hover{
   background-color: ghostwhite;
+  color: red;
 }
