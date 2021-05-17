@@ -1,5 +1,4 @@
 html {
-    font-size: 62.5%;
     box-sizing: border-box;
   }
 
@@ -49,9 +48,9 @@ html {
     grid-gap: 20px;
     padding: 20px;
   }
-  .navbar a{
-    font-size: 1.8em !important;
-}
+  /* .navbar a{
+    font-size: 1.8rem !important;
+} */
 .btn:hover{
   background-color: ghostwhite;
 }
