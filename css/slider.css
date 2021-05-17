@@ -3,6 +3,7 @@
     border:10px solid white;
     margin:50px auto;
     position:relative;
+    text-decoration: none;
 }
 .slider .slider-items .item img{
     max-width:100%;
@@ -56,5 +57,17 @@
     transition: background-color 0.6s ease;
   }
   .dot-active, .dot:hover {
-    background-color: #717171;
+    background-color: red;
   }
+  .slider-items .dot-active:active{
+      background-color: red;
+  }
+  .left-slide{
+      text-decoration: none;
+  }
+  .right-slide{
+      text-decoration: none;
+  }
+  
+ 
+  
