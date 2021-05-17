@@ -10,6 +10,7 @@ var modal = document.getElementById("myModal");
 
  span.onclick = function() {
    modal.style.display = "none";
+   document.getElementById('myform').reset();
  }
 
  window.onclick = function(event) {
